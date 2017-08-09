@@ -1,0 +1,33 @@
+group 'com.anoohya'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    repositories {
+        mavenCentral()//gradle supports maven and ivy repositories to look for dependencies.
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.5.RELEASE")
+    }
+}
+
+apply plugin: 'java'// gradle has plugins to extend its core functionality.  built-in dependency resolver
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+jar {
+    baseName = 'gs-accessing-data-mongodb'
+    version =  '0.1.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-data-mongodb")
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+}
